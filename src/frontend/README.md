@@ -1,13 +1,15 @@
-# STAYM Laundry - Order Management Application
+# STAYM Laundry - Price Calculator Application
 
-A simple and elegant laundry order management application built on the Internet Computer Platform (ICP).
+A simple and elegant laundry price calculator application built on the Internet Computer Platform (ICP).
 
 ## Features
 
-- **Customer Order Form**: Collect customer information (name, mobile, address)
-- **Item Selection**: Choose quantities for shirts, pants, and sarees
-- **Real-time Pricing**: Automatic calculation of total cost (₹10 per item + ₹20 pickup fee)
-- **WhatsApp Integration**: Send orders directly via WhatsApp
+- **Laundry Price Calculator**: Calculate total laundry costs for different items
+  - Shirt: ₹10 each
+  - Pant: ₹10 each
+  - Saree: ₹50 each
+  - Paithani Saree: ₹100 each
+  - Drilling Saree: ₹150 each
 - **Custom Domain Configuration**: Validate and configure custom domains for deployment
 - **Dark Mode Support**: Automatic light/dark theme switching
 - **Responsive Design**: Works seamlessly on mobile and desktop devices
@@ -32,3 +34,4 @@ A simple and elegant laundry order management application built on the Internet 
 ### Development
 
 Start the development server:
+

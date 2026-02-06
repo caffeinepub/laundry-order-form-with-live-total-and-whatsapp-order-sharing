@@ -90,7 +90,7 @@ export class ExternalBlob {
     }
 }
 export interface backendInterface {
-    validateCustomDomain(domain: string): Promise<void>;
+    validateCustomDomain(arg0: string): Promise<void>;
 }
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}

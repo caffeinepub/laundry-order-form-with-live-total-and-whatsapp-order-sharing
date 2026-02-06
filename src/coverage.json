@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T04:57:17.616Z",
+  "generatedAt": "2026-02-06T06:01:44.104Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,21 +11,8 @@
     "implemented": 3,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "Add a \"Laundry Price Calculator\" UI that matches the user-provided item list and pricing: Shirt ₹10, Pant ₹10, Saree ₹50, Paithani Saree ₹100, Drilling Saree ₹150; include quantity number inputs for each item (default 0) and show a total in INR starting at \"Total: ₹0\".",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/LaundryPriceCalculator.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/LaundryPriceCalculator.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "Add basic input validation for the calculator quantity inputs: prevent negative values and treat empty/invalid input as 0 so total calculation never produces NaN or negative totals.",
+        "id": "REQ-11",
+        "summary": "Add a new \"Customer Name\" input field to the Laundry Price Calculator order flow UI, captured in component state and displayed alongside the existing contact number and pickup/delivery address fields.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/LaundryPriceCalculator.tsx"
@@ -35,13 +22,26 @@
         ]
       },
       {
-        "id": "REQ-3",
-        "summary": "Ensure all user-facing text added/updated for the calculator is in English (e.g., headings, labels, button text, total label).",
+        "id": "REQ-12",
+        "summary": "Validate the new Customer Name field on the client and prevent sending a WhatsApp order unless Customer Name, Contact Number, and Pickup/Delivery Address are provided; show a clear English inline validation message for the Customer Name field when invalid.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/LaundryPriceCalculator.tsx"
         ],
         "matchedFiles": [
+          "frontend/src/components/LaundryPriceCalculator.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Include the captured Customer Name in the prefilled WhatsApp message generated for the order, together with the existing customer contact number, address, line items, and grand total, while keeping the WhatsApp destination number as +917248903366.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/utils/whatsapp.ts",
+          "frontend/src/components/LaundryPriceCalculator.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/utils/whatsapp.ts",
           "frontend/src/components/LaundryPriceCalculator.tsx"
         ]
       }
@@ -49,12 +49,11 @@
   },
   "changedFiles": [
     "build-request.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/App.tsx",
     "frontend/src/components/LaundryPriceCalculator.tsx",
+    "frontend/src/utils/whatsapp.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

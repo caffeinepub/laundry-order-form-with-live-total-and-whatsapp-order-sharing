@@ -2,10 +2,9 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-laundry-price-calculator-ui-that-matches-the-user-provided-item-list-and-pricing-shirt-10-pant-10-saree-50-paithani-saree-100-drilling-saree-150-include-quantity-number-inputs-for-each-item-default-0-and-show-a-total-in-inr-starting-at-total-0",
-      "featureTitle": "Add a \"Laundry Price Calculator\" UI that matches the user-provided item list and pricing: Shirt ₹10, Pant ₹10, Saree ₹50, Paithani Saree ₹100, Drilling Saree ₹150; include quantity number inputs for each item (default 0) and show a total in INR starting at \"Total: ₹0\".",
+      "featureId": "feature-add-a-new-customer-name-input-field-to-the-laundry-price-calculator-order-flow-ui-captured-in-component-state-and-displayed-alongside-the-existing-contact-number-and-pickup-delivery-address-fields",
+      "featureTitle": "Add a new \"Customer Name\" input field to the Laundry Price Calculator order flow UI, captured in component state and displayed alongside the existing contact number and pickup/delivery address fields.",
       "files": [
-        "frontend/src/App.tsx",
         "frontend/src/components/LaundryPriceCalculator.tsx"
       ],
       "components": [
@@ -16,13 +15,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-11"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-basic-input-validation-for-the-calculator-quantity-inputs-prevent-negative-values-and-treat-empty-invalid-input-as-0-so-total-calculation-never-produces-nan-or-negative-totals",
-      "featureTitle": "Add basic input validation for the calculator quantity inputs: prevent negative values and treat empty/invalid input as 0 so total calculation never produces NaN or negative totals.",
+      "featureId": "feature-validate-the-new-customer-name-field-on-the-client-and-prevent-sending-a-whatsapp-order-unless-customer-name-contact-number-and-pickup-delivery-address-are-provided-show-a-clear-english-inline-validation-message-for-the-customer-name-field-when-invalid",
+      "featureTitle": "Validate the new Customer Name field on the client and prevent sending a WhatsApp order unless Customer Name, Contact Number, and Pickup/Delivery Address are provided; show a clear English inline validation message for the Customer Name field when invalid.",
       "files": [
         "frontend/src/components/LaundryPriceCalculator.tsx"
       ],
@@ -34,15 +33,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-2"
+        "REQ-12"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-ensure-all-user-facing-text-added-updated-for-the-calculator-is-in-english-e-g-headings-labels-button-text-total-label",
-      "featureTitle": "Ensure all user-facing text added/updated for the calculator is in English (e.g., headings, labels, button text, total label).",
+      "featureId": "feature-include-the-captured-customer-name-in-the-prefilled-whatsapp-message-generated-for-the-order-together-with-the-existing-customer-contact-number-address-line-items-and-grand-total-while-keeping-the-whatsapp-destination-number-as-917248903366",
+      "featureTitle": "Include the captured Customer Name in the prefilled WhatsApp message generated for the order, together with the existing customer contact number, address, line items, and grand total, while keeping the WhatsApp destination number as +917248903366.",
       "files": [
-        "frontend/src/components/LaundryPriceCalculator.tsx"
+        "frontend/src/components/LaundryPriceCalculator.tsx",
+        "frontend/src/utils/whatsapp.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -52,7 +52,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-3"
+        "REQ-13"
       ],
       "confidence": "high"
     }

@@ -1,49 +1,23 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T04:57:17.614Z",
-  "summary": "The diff adds a new LaundryPriceCalculator component and mounts it in App.tsx. Core pricing math and non-negative/invalid input handling appear implemented, but there is evidence the quantity inputs may not actually display a default value of 0 due to rendering 0 as an empty string. Several unrelated UI/theme/docs changes also appear.",
-  "missing_requirements": [
-    {
-      "id": "REQ-1",
-      "requirement": "Each quantity input defaults to 0 (visible as 0) on first load.",
-      "reason": "In the new calculator component, the input value is set to `shirtQty || ''` (and similarly for other quantities). Since `0` is falsy, the rendered value becomes an empty string rather than 0, which conflicts with the AC that inputs default to 0.",
-      "evidence": [
-        "frontend/src/components/LaundryPriceCalculator.tsx"
-      ]
-    }
-  ],
+  "generatedAt": "2026-02-06T06:01:44.102Z",
+  "summary": "Diff adds a Customer Name field with React state and client-side validation to the Laundry order flow, and extends WhatsApp message composition to include a Name line while keeping the destination number constant. However, the WhatsApp message template introduces emoji characters not requested and may violate the “all user-facing text in English” constraint.",
+  "missing_requirements": [],
   "hallucinated_features": [
     {
-      "description": "Added lucide-react icons and extensive decorative styling (gradients, themed cards) for calculator items.",
-      "reason": "The BuildRequest only asks for the calculator UI elements/logic and English text; it does not request iconography or a redesigned themed layout.",
+      "description": "WhatsApp message formatting now includes emoji glyphs (e.g., 📋, 🧺, 💰) in the prefilled message template, which was not requested and may conflict with the constraint to keep all user-facing text in English.",
+      "reason": "BuildRequest only asked to include a \"Name:\" line and maintain existing details; it did not request adding emojis or changing message styling beyond adding the name line.",
       "evidence": [
-        "frontend/src/components/LaundryPriceCalculator.tsx"
-      ]
-    },
-    {
-      "description": "Global styling/theme and Tailwind configuration changes (OKLCH warm amber/orange theme tokens).",
-      "reason": "No requirement asks to modify global CSS or Tailwind theme configuration for this feature.",
-      "evidence": [
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js",
-        "frontend-file-summaries.txt"
-      ]
-    },
-    {
-      "description": "README documentation updates describing the application and features.",
-      "reason": "Documentation updates were not requested as part of adding the calculator UI.",
-      "evidence": [
-        "frontend/README.md",
-        "frontend-file-summaries.txt"
+        "frontend/src/utils/whatsapp.ts"
       ]
     }
   ],
-  "confidence": 0.68,
+  "confidence": 0.66,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/App.tsx",
     "frontend/src/components/LaundryPriceCalculator.tsx",
+    "frontend/src/utils/whatsapp.ts",
     "project_state.json"
   ]
 }

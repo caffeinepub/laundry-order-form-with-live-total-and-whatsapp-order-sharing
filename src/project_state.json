@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 21,
   "summary": "Initial ICP dapp scaffold implemented: Motoko backend canister + React/Vite/Tailwind frontend using shadcn/ui components, Internet Identity auth hooks, and local storage utilities, packaged with a reusable build/deploy template.",
   "architectural_notes": [
     "Project structured as an ICP dapp with a Motoko backend canister and a separate React/Vite frontend.",
@@ -9,7 +9,9 @@
     "Repository includes a reusable build/deploy template (Docker + scripts + canister yaml) to standardize packaging and deployment.",
     "Frontend adds custom ESLint rules to enforce Internet Identity provider usage and prevent problematic BigInt usage in query keys."
   ],
-  "known_issues": [],
+  "known_issues": [
+    "In production (v4), the previously available \"Order\" button is not showing on the site UI as expected."
+  ],
   "isFixRequest": false,
   "generatedImages": [
     {
@@ -120,6 +122,86 @@
         "REQ-3"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-publish-deploy-the-current-application-build-to-production-without-changing-the-existing-custom-domain-configuration",
+      "title": "Publish/deploy the current application build to production without changing the existing custom domain configuration.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-order-action-back-to-the-laundry-price-calculator-ui-so-the-user-can-proceed-after-calculating-totals",
+      "title": "Add an \"Order\" action back to the Laundry Price Calculator UI so the user can proceed after calculating totals.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-visible-whatsapp-contact-number-917248903366-to-the-laundry-price-calculator-order-flow-ui-using-english-labels-and-consistent-styling-with-the-existing-calculator-card",
+      "title": "Add a visible WhatsApp contact number (+917248903366) to the Laundry Price Calculator order flow UI, using English labels and consistent styling with the existing calculator card.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-whatsapp-ordering-action-that-opens-whatsapp-with-a-prefilled-message-containing-the-current-order-details-selected-items-with-quantities-and-line-totals-plus-the-grand-total-using-whatsapp-click-to-chat-for-number-917248903366",
+      "title": "Add a WhatsApp ordering action that opens WhatsApp with a prefilled message containing the current order details (selected items with quantities and line totals, plus the grand total) using WhatsApp click-to-chat for number +917248903366.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-input-fields-in-the-laundry-price-calculator-order-flow-to-capture-the-person-placing-the-order-s-contact-number-and-full-address-using-english-labels-and-styling-consistent-with-the-existing-order-summary-panel",
+      "title": "Add input fields in the Laundry Price Calculator order flow to capture the person placing the order’s contact number and full address, using English labels and styling consistent with the existing order summary panel.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-validate-the-new-order-flow-fields-on-the-client-prevent-sending-a-whatsapp-order-unless-the-contact-number-and-address-are-provided-and-show-clear-english-inline-validation-messages",
+      "title": "Validate the new order-flow fields on the client: prevent sending a WhatsApp order unless the contact number and address are provided, and show clear English inline validation messages.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-include-the-captured-contact-number-and-address-in-the-prefilled-whatsapp-message-generated-for-the-order-along-with-the-existing-line-items-and-grand-total-and-keep-the-whatsapp-destination-number-as-917248903366",
+      "title": "Include the captured contact number and address in the prefilled WhatsApp message generated for the order, along with the existing line items and grand total, and keep the WhatsApp destination number as +917248903366.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-customer-name-input-field-to-the-laundry-price-calculator-order-flow-ui-captured-in-component-state-and-displayed-alongside-the-existing-contact-number-and-pickup-delivery-address-fields",
+      "title": "Add a new \"Customer Name\" input field to the Laundry Price Calculator order flow UI, captured in component state and displayed alongside the existing contact number and pickup/delivery address fields.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-validate-the-new-customer-name-field-on-the-client-and-prevent-sending-a-whatsapp-order-unless-customer-name-contact-number-and-pickup-delivery-address-are-provided-show-a-clear-english-inline-validation-message-for-the-customer-name-field-when-invalid",
+      "title": "Validate the new Customer Name field on the client and prevent sending a WhatsApp order unless Customer Name, Contact Number, and Pickup/Delivery Address are provided; show a clear English inline validation message for the Customer Name field when invalid.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-include-the-captured-customer-name-in-the-prefilled-whatsapp-message-generated-for-the-order-together-with-the-existing-customer-contact-number-address-line-items-and-grand-total-while-keeping-the-whatsapp-destination-number-as-917248903366",
+      "title": "Include the captured Customer Name in the prefilled WhatsApp message generated for the order, together with the existing customer contact number, address, line items, and grand total, while keeping the WhatsApp destination number as +917248903366.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -132,6 +214,24 @@
     {
       "id": "AR-2",
       "summary": "Add basic input validation for required fields/quantities (e.g., non-negative numbers) before calculating/continuing the laundry order flow.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add a WhatsApp contact/order flow: include WhatsApp number +917248903366 in the UI and provide an action to send/show the order details via WhatsApp.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add fields to the order flow to capture the person placing the order’s contact number and address (and display/include them in the order details).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add a \"Customer Name\" field to the laundry order flow (capture and include/display it alongside contact number and address, and include it in the WhatsApp order details if applicable).",
       "reqIds": [],
       "status": "pending"
     }

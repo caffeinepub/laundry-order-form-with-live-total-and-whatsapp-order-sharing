@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Add a simple Laundry Price Calculator UI to compute a laundry bill total in INR based on five item types and per-item pricing.
+**Goal:** Add a Customer Name field to the Laundry order flow and include it in the generated WhatsApp order message.
 
 **Planned changes:**
-- Create a “Laundry Price Calculator” section with 5 quantity number inputs (default 0): Shirt, Pant, Saree, Paithani Saree, Drilling Saree.
-- Add a “Total Calculate” button that computes and displays the total as `Total: ₹<number>`, starting at `Total: ₹0` on load.
-- Implement basic input validation so quantities are non-negative and empty/invalid inputs are treated as 0, ensuring totals never show NaN or negative values.
-- Ensure all calculator-related user-facing text is English-only.
+- Add a new “Customer Name” input to the Order Summary panel alongside the existing contact number and pickup/delivery address fields, storing the value in React component state.
+- Add client-side validation for Customer Name (non-empty/non-whitespace) and block “Order on WhatsApp” until Customer Name, contact number, and address are all valid, showing an inline English error message when Customer Name is invalid.
+- Update the prefilled WhatsApp message to include a “Name:” line in the customer details section, while keeping the WhatsApp destination number as +917248903366.
 
-**User-visible outcome:** Users can enter quantities for the five laundry items, click “Total Calculate,” and see the total bill displayed in INR, with invalid/negative inputs safely handled.
+**User-visible outcome:** Users can enter a customer name during checkout; they can’t open WhatsApp to place an order until name, contact number, and address are filled, and the WhatsApp message includes the customer’s name along with the existing order details.

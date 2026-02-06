@@ -8,5 +8,5 @@ export interface None {
 }
 export type Option<T> = Some<T> | None;
 export interface backendInterface {
-    validateCustomDomain(domain: string): Promise<void>;
+    validateCustomDomain(arg0: string): Promise<void>;
 }
