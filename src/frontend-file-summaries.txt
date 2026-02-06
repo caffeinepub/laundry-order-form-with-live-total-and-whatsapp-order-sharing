@@ -1,0 +1,8 @@
+{
+  "frontend/src/App.tsx": "Main app component featuring the LaundryPriceCalculator component and custom domain validation section with header and footer.",
+  "frontend/src/index.css": "Global CSS with Tailwind directives and custom OKLCH color system using warm amber/orange earth tones for light and dark modes, avoiding blue/purple as primary colors.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended color tokens mapped to OKLCH CSS variables, custom border radius, shadows, and font family settings for the warm neutral design theme.",
+  "frontend/src/hooks/useCustomDomainValidation.ts": "Custom React hook that provides client-side and backend domain validation, enforcing length (5-50 chars), allowed characters (letters/numbers/hyphens), no spaces, and no trailing hyphens with clear English error messages.",
+  "frontend/README.md": "Complete documentation for the STAYM Laundry application including features, installation, development, deployment instructions, custom domain validation guide, and project structure overview.",
+  "frontend/src/components/LaundryPriceCalculator.tsx": "Dedicated laundry price calculator component with 5 item quantity inputs (Shirt, Pant, Saree, Paithani Saree, Drilling Saree), a \"Total Calculate\" button, and total display starting at \"Total: ₹0\" with non-negative input validation."
+}

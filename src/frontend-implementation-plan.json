@@ -1,0 +1,60 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Laundry Price Calculator UI (5 item types, button-based total)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add a Laundry Price Calculator UI with 5 item quantity inputs, per-item INR pricing, a Total Calculate button, and a displayed total starting at \"Total: ₹0\".",
+      "acceptanceCriteria": [
+        "The UI contains 5 quantity inputs labeled in English: Shirt, Pant, Saree, Paithani Saree, Drilling Saree.",
+        "Each input defaults to 0 and is type=number with non-negative behavior.",
+        "A \"Total Calculate\" button exists; clicking it updates the displayed total.",
+        "The total display is rendered as \"Total: ₹<number>\" and starts at \"Total: ₹0\" on first load.",
+        "The computed total equals (shirtQty*10 + pantQty*10 + sareeQty*50 + paithaniQty*100 + drillingQty*150)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LaundryPriceCalculator.tsx",
+          "operation": "create",
+          "description": "Create a dedicated Laundry Price Calculator component that renders the 5 labeled quantity number inputs (defaulting to 0), a \"Total Calculate\" button, and a total display formatted exactly as \"Total: ₹<number>\" with initial value \"Total: ₹0\"."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the new LaundryPriceCalculator component into the existing UI (e.g., as a new section/card within the main content) so it is reachable on the current page without adding new routes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add input validation so calculator quantities never go negative and invalid/empty values are treated as 0 to avoid NaN or negative totals.",
+      "acceptanceCriteria": [
+        "Entering a negative number results in the stored quantity being clamped to 0 (or the UI preventing negatives).",
+        "If a quantity field is cleared (empty), the calculator treats it as 0 and total calculation still works.",
+        "Total never displays NaN and never displays a negative value."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LaundryPriceCalculator.tsx",
+          "operation": "modify",
+          "description": "Implement non-negative numeric parsing/clamping for each quantity input (e.g., enforce min=0 and clamp parsed values); treat empty/invalid input as 0 during calculation so the rendered total never becomes NaN or negative."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Ensure all calculator user-facing text is English-only (heading, labels, button text, and total label).",
+      "acceptanceCriteria": [
+        "All calculator-related labels and messages are English-only."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LaundryPriceCalculator.tsx",
+          "operation": "modify",
+          "description": "Audit and enforce that all calculator-related UI strings (heading, item labels, button label, and \"Total: ₹…\" display) are English-only and match the BuildRequest wording where specified."
+        }
+      ]
+    }
+  ]
+}

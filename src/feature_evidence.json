@@ -1,0 +1,60 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-laundry-price-calculator-ui-that-matches-the-user-provided-item-list-and-pricing-shirt-10-pant-10-saree-50-paithani-saree-100-drilling-saree-150-include-quantity-number-inputs-for-each-item-default-0-and-show-a-total-in-inr-starting-at-total-0",
+      "featureTitle": "Add a \"Laundry Price Calculator\" UI that matches the user-provided item list and pricing: Shirt ₹10, Pant ₹10, Saree ₹50, Paithani Saree ₹100, Drilling Saree ₹150; include quantity number inputs for each item (default 0) and show a total in INR starting at \"Total: ₹0\".",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/LaundryPriceCalculator.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-basic-input-validation-for-the-calculator-quantity-inputs-prevent-negative-values-and-treat-empty-invalid-input-as-0-so-total-calculation-never-produces-nan-or-negative-totals",
+      "featureTitle": "Add basic input validation for the calculator quantity inputs: prevent negative values and treat empty/invalid input as 0 so total calculation never produces NaN or negative totals.",
+      "files": [
+        "frontend/src/components/LaundryPriceCalculator.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-all-user-facing-text-added-updated-for-the-calculator-is-in-english-e-g-headings-labels-button-text-total-label",
+      "featureTitle": "Ensure all user-facing text added/updated for the calculator is in English (e.g., headings, labels, button text, total label).",
+      "files": [
+        "frontend/src/components/LaundryPriceCalculator.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "kind": "build_request",
+  "title": "Add Laundry Bill (Price Calculator) UI with 5 item types and per-item pricing",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Add a \"Laundry Price Calculator\" UI that matches the user-provided item list and pricing: Shirt ₹10, Pant ₹10, Saree ₹50, Paithani Saree ₹100, Drilling Saree ₹150; include quantity number inputs for each item (default 0) and show a total in INR starting at \"Total: ₹0\".",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "<!DOCTYPE html>\n<html>\n<head>\n  <title>Laundry Bill</title>\n</head>\n<body>\n\n<h2>Laundry Price Calculator</h2>\n\n<label>Shirt:</label>\n<input type=\"number\" id=\"shirt\" value=\"0\"><br><br>\n\n<label>Pant:</label>\n<input type=\"number\" id=\"pant\" value=\"0\"><br><br>\n\n<label>Saree:</label>\n<input type=\"number\" id=\"saree\" value=\"0\"><br><br>\n\n<label>Paithani Saree:</label>\n<input type=\"number\" id=\"paithani\" value=\"0\"><br><br>\n\n<label>Drilling Saree:</label>\n<input type=\"number\" id=\"drilling\" value=\"0\"><br><br>\n\n<button onclick=\"calculateBill()\">Total Calculate</button>\n\n<h3 id=\"total\">Total: ₹0</h3>\n\n<script>\nfunction calculateBill() {\n  let shirt = document.getElementById(\"shirt\").value * 10;\n  let pant = document.getElementById(\"pant\").value * 10;\n  let saree = document.getElementById(\"saree\").value * 50;\n  let paithani = document.getElementById(\"paithani\").value * 100;\n  let drilling = document.getElementById(\"drilling\").value * 150;\n\n  let total = shirt + pant + saree + paithani + drilling;\n\n  document.getElementById(\"total\").innerText = \"Total: ₹\" + total;\n}\n</script>\n\n</body>\n</html>"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The UI contains 5 quantity inputs labeled in English: Shirt, Pant, Saree, Paithani Saree, Drilling Saree.",
+        "Each input defaults to 0 and is type=number with non-negative behavior.",
+        "A \"Total Calculate\" button exists; clicking it updates the displayed total.",
+        "The total display is rendered as \"Total: ₹<number>\" and starts at \"Total: ₹0\" on first load.",
+        "The computed total equals (shirtQty*10 + pantQty*10 + sareeQty*50 + paithaniQty*100 + drillingQty*150)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add basic input validation for the calculator quantity inputs: prevent negative values and treat empty/invalid input as 0 so total calculation never produces NaN or negative totals.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "<input type=\"number\" id=\"shirt\" value=\"0\">",
+          "<button onclick=\"calculateBill()\">Total Calculate</button>"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Entering a negative number results in the stored quantity being clamped to 0 (or the UI preventing negatives).",
+        "If a quantity field is cleared (empty), the calculator treats it as 0 and total calculation still works.",
+        "Total never displays NaN and never displays a negative value."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Ensure all user-facing text added/updated for the calculator is in English (e.g., headings, labels, button text, total label).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Use English for any user-facing text in the build request."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All calculator-related labels and messages are English-only."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit any files under frontend/src/components/ui (shadcn/ui sources); compose them if needed.",
+    "Do not modify immutable hook files (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "Respect the existing single-actor Motoko backend architecture; no additional backend canisters/services."
+  ],
+  "nonGoals": [
+    "Do not add third-party auth providers (only Internet Identity is allowed).",
+    "Do not add external databases or third-party APIs.",
+    "Do not change the existing custom domain validation rules unless explicitly requested."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

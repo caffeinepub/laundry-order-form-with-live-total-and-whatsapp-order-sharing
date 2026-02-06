@@ -1,2 +1,3 @@
-# laundry-order-form-with-live-total-and-whatsapp-order-sharing
-Exported from Caffeine project: Add Laundry Bill (Price Calculator) UI with 5 item types and per-item pricing
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
